@@ -4,10 +4,10 @@ import RideLayout from "@/components/RideLayout";
 import DriverCard from "@/components/DriverCard";
 import CustomButton from "@/components/CustomButton";
 import { router } from "expo-router";
-import { userDriverStore } from "@/store";
+import { useDriverStore } from "@/store";
 
 const ConfrimRide = () => {
-  const { selectedDriver, drivers, setSelectedDriver } = userDriverStore();
+  const { selectedDriver, drivers, setSelectedDriver } = useDriverStore();
 
   return (
     <RideLayout title="Choose a Driver" snapPoints={["65%", "85%"]}>
@@ -17,7 +17,7 @@ const ConfrimRide = () => {
           <DriverCard
             item={item}
             selected={selectedDriver!}
-            setSelected={() => setSelectedDriver(item.id)}
+            setSelected={() => setSelectedDriver(Number(item.id))}
           />
         )}
         ListFooterComponent={() => (

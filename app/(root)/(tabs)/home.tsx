@@ -152,17 +152,11 @@ export default function Page() {
           },
         }
       );
-      console.log(res.data.address.district);
       setUserLocation({
         latitude: location.coords.latitude,
         longitude: location.coords.longitude,
         address: res?.data.address.district || "I dont khow",
       });
-
-      // const address = await Location.reverseGeocodeAsync({
-      //   latitude: location.coords.latitude,
-      //   longitude: location.coords.longitude,
-      // });
     };
     requestLocation();
   }, []);

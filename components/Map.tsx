@@ -1,6 +1,6 @@
 import MapView, { Marker, PROVIDER_DEFAULT } from "react-native-maps";
 import React, { useEffect, useState } from "react";
-import { useLocationStore, userDriverStore } from "@/store";
+import { useLocationStore, useDriverStore } from "@/store";
 import { calculateRegion, generateMarkersFromData } from "@/lib/map";
 import { MarkerData } from "@/types/type";
 import { icons } from "@/constants";
@@ -59,7 +59,7 @@ export default function Map() {
     destinationLatitude,
     destinationLongitude,
   } = useLocationStore();
-  const { selectedDriver, setDrivers } = userDriverStore();
+  const { selectedDriver, setDrivers } = useDriverStore();
   const [markers, setMarkers] = useState<MarkerData>([]);
   const regin = calculateRegion({
     userLatitude,
